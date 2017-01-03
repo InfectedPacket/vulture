@@ -1,0 +1,68 @@
+//------------------------------------------------
+//--- 010 Editor v7.0.2 Binary Template
+//
+//      File: plf.bt
+//   Authors: Jonathan Racicot
+//   Version: 1.0
+//   Purpose: Parses a Parrot Firmware file (PLF!)
+//  Category: Firmware
+// File Mask: <none>
+//  ID Bytes: PLF!
+//   History: December 2016: Creation
+//------------------------------------------------
+struct PARROT {
+    struct HEADER {
+        char dwMagic[4];
+        uint dwHdrVersion;
+        uint dwHdrSize;
+        uint dwEntryHdrSize;
+        uint dwUnk1;
+        uint dwUnk2;
+        uint dwUnk3;
+        uint dwUnk4;
+        uint dwUnk5;
+        uint dwVersionMajor;
+        uint dwVersionMinor;
+        uint dwVersionRev;
+        uint dwUnk6;
+        uint dwFileSize;
+    } header;
+
+    local uint padding;
+    do {
+        struct ENTRY {
+            uint dwSectionType;
+            uint dwEntrySize;
+            uint dwCrc32;
+            uint dwUnk1;
+            uint dwUncompressedSize;
+            if (this.dwSectionType == 0x09) {
+                if (this.dwUncompressedSize == 0) {
+                    struct FILE {
+                        string szFilename;
+                        uint dwFlags;
+                        uint dwUnk1;
+                        uint dwUnk2;
+                        if ((this.dwFlags & 0xF000 >> 12) == 0x08) {
+                            ubyte dwData[this.dwEntrySize-12-sizeof(szFilename)];
+                        } else if ((this.dwFlags & 0xF000 >> 12) == 0x0A) {
+                            string szLinked;
+                        }
+                    } file;
+                } else {
+                    ubyte dwData[this.dwEntrySize];
+                }
+            } else {
+                ubyte dwData[this.dwEntrySize];
+            }
+        } entry;
+
+        if (entry.dwEntrySize % 4 > 0) {
+            padding = (((entry.dwEntrySize / 4) + 1) * 4) - (entry.dwEntrySize);
+            struct PADDING {
+                ubyte bPadding[padding];
+            } pad;
+        }
+    } while (FTell() < header.dwFileSize);
+
+} parrotfile;
