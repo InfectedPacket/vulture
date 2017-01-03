@@ -46,7 +46,7 @@ Vulture was tested with the following firmwares:
 
 ##Citation
 
-This software is free to use and modify as needed in your project. If you do, please consider citing usage of this application in your code/papers. Thank you!
+This software is free to use and modify as needed in your project. If you do, please cite usage of this application in your code/papers and linking to my GitHub. Thank you!
 
 ```latex
 @Misc{racicot17,
@@ -59,4 +59,4 @@ year = {2017}
 
 ##Further Reading
 
-Racicot, J., Reversing the Parrot SkyController Firmware, Infected Packets, http://thecyberrecce.net (accessed on)
+Racicot, J., Reversing the Parrot SkyController Firmware, Infected Packets, http://wp.me/p852om-8Q (accessed on 2017-01-09)
