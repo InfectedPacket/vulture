@@ -36,19 +36,23 @@ The example below will extract files from the 'nap_update.plf' file and extract 
 
 ##Notes
 
-As of January 2017, Vulture was tested only on the Parrot SkyController 1.7.4 firmware file. There is no guarantee that it will successfully extract contents from other firmware at this moment.
+As of January 2017, Vulture was tested only on the Parrot SkyController 1.7.4 and Bebop2 4.0.3 firmware file. There is no guarantee that it will successfully extract contents from other firmware at this moment, but I'm confident it should do much of the work.
 
 CRC checks are not conducted at this moment, as it is unclear how each CRC value is calculated. Additional work is being conducted on this. Feel free to assist if yo have more information.
 
-This software is free to use and modify as needed in your project. If you do, please consider citing usage of this application in your code or reports. Thank you!
+Vulture was tested with the following firmwares:
+- [SkyController  1.7.4](https://community.parrot.com/t5/Skycontroller/bd-p/Sky)
+- [Parrot Bebop2 4.0.3](https://community.parrot.com/t5/Bebop-2/bd-p/Bebop2)
 
 ##Citation
+
+This software is free to use and modify as needed in your project. If you do, please consider citing usage of this application in your code/papers. Thank you!
 
 ```latex
 @Misc{racicot17,
 author =   {Jonathan Racicot},
 title =    {Vulture},
-howpublished = {\url{}},
+howpublished = {\url{https://github.com/InfectedPacket/vulture}},
 year = {2017}
 }
 ```
