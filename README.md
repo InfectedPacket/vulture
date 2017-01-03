@@ -51,8 +51,8 @@ This software is free to use and modify as needed in your project. If you do, pl
 ```latex
 @Misc{racicot17,
 author =   {Jonathan Racicot},
-title =    {Vulture},
-howpublished = {\url{https://github.com/InfectedPacket/vulture}},
+title =    {Reversing the Parrot SkyController Firmware},
+howpublished = {\url{http://wp.me/p852om-8Q}},
 year = {2017}
 }
 ```
